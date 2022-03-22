@@ -28,15 +28,24 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('user') }}" class="nav-link @if ($page == 'inventory') active @endif">
+                    <a href="{{ route('inventory') }}"
+                        class="nav-link @if ($page == 'inventory') active @endif">
                         <i class="nav-icon fas fa-box"></i>
                         <p>Inventory</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('user') }}" class="nav-link @if ($page == 'transaction') active @endif">
+                    <a href="{{ route('transaction') }}"
+                        class="nav-link @if ($page == 'transaction') active @endif">
                         <i class="nav-icon fas fa-cash-register"></i>
                         <p>Transaction</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('transaction') }}"
+                        class="nav-link @if ($page == 'history') active @endif">
+                        <i class="nav-icon fas fa-history"></i>
+                        <p>History</p>
                     </a>
                 </li>
             </ul>

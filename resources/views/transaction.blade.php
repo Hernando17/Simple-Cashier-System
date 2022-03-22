@@ -1,9 +1,9 @@
 @extends('templates/index')
-@section('title', 'Dashboard')
+@section('title', 'Transaction')
 @section('content')
 
     <?php
-    $page = 'user';
+    $page = 'transaction';
     ?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -32,43 +32,49 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <a href="{{ route('create_user') }}" class="btn btn-success float-left ion-plus"></a>
-                                <a href="{{ route('user') }}" class="btn btn-primary float-left ml-1 ion-refresh"></a>
+                                <a href="{{ route('create_transaction') }}"
+                                    class="btn btn-success float-left ion-plus"></a>
+                                <a href="{{ route('transaction') }}"
+                                    class="btn btn-primary float-left ml-1 ion-refresh"></a>
+                                <a href="{{ route('transaction') }}" class="btn btn-info float-right">Paid</a>
                             </div>
 
                             <!-- /.card-header -->
                             <div class="
                             card-body">
+
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Email</th>
-                                            <th>Name</th>
+                                            <th>Item</th>
+                                            <th>Quantity</th>
+                                            <th>Total</th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($users as $u)
+                                        @foreach ($transactions as $t)
                                             <tr>
                                                 <td>{{ !empty($i) ? ++$i : ($i = 1) }}</td>
-                                                <td>{{ $u->email }}</td>
-                                                <td>{{ $u->name }}</td>
+                                                <td>{{ $t->item }}</td>
+                                                <td>{{ $t->quantity }}</td>
+                                                <td>{{ $t->total }}</td>
                                                 <td>
-                                                    <a href="{{ route('edit_user', $u->id) }}"
+                                                    <a href="{{ route('edit_user', $t->id) }}"
                                                         class="btn btn-primary ion-edit"></a>
-                                                    <form action="{{ route('delete_user', $u->id) }}" method="GET"
+                                                    <form action="{{ route('delete_user', $t->id) }}" method="GET"
                                                         class="d-inline">
                                                         <button type="button" class="btn btn-danger ion-trash-a"
                                                             data-toggle="modal"
-                                                            data-target="#modal-default{{ $u->id }}">
+                                                            data-target="#modal-default{{ $t->id }}">
                                                         </button>
-                                                        <div class="modal fade" id="modal-default{{ $u->id }}">
+                                                        <div class="modal fade" id="modal-default{{ $t->id }}">
                                                             <div class="modal-dialog">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
                                                                         <h4 class="modal-title">Delete User
-                                                                            ({{ $u->name }})
+                                                                            ({{ $t->name }})
                                                                         </h4>
                                                                         <button type="button" class="close"
                                                                             data-dismiss="modal" aria-label="Close">

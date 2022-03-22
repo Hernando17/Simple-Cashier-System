@@ -1,9 +1,9 @@
 @extends('templates/index')
-@section('title', 'Dashboard')
+@section('title', 'Inventory')
 @section('content')
 
     <?php
-    $page = 'user';
+    $page = 'inventory';
     ?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -32,8 +32,9 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <a href="{{ route('create_user') }}" class="btn btn-success float-left ion-plus"></a>
-                                <a href="{{ route('user') }}" class="btn btn-primary float-left ml-1 ion-refresh"></a>
+                                <a href="{{ route('create_inventory') }}" class="btn btn-success float-left ion-plus"></a>
+                                <a href="{{ route('inventory') }}"
+                                    class="btn btn-primary float-left ml-1 ion-refresh"></a>
                             </div>
 
                             <!-- /.card-header -->
@@ -43,17 +44,17 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Email</th>
-                                            <th>Name</th>
+                                            <th>Item</th>
+                                            <th>Price</th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($users as $u)
+                                        @foreach ($inventorys as $u)
                                             <tr>
                                                 <td>{{ !empty($i) ? ++$i : ($i = 1) }}</td>
-                                                <td>{{ $u->email }}</td>
-                                                <td>{{ $u->name }}</td>
+                                                <td>{{ $u->item }}</td>
+                                                <td>{{ $u->price }}</td>
                                                 <td>
                                                     <a href="{{ route('edit_user', $u->id) }}"
                                                         class="btn btn-primary ion-edit"></a>

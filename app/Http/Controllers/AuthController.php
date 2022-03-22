@@ -24,8 +24,6 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
 
-        dd(Auth::attempt($credentials));
-
         if (Auth::attempt($credentials)) {
             return redirect()->intended('dashboard');
         }

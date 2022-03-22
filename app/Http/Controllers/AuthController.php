@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest', ['except' => 'logout']);
+    }
+
     public function login()
     {
         return view('index');
@@ -19,21 +24,18 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
+        dd(Auth::attempt($credentials));
 
-            return redirect()->intended('/');
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended('dashboard');
         }
     }
 
     public function logout(Request $request)
     {
         Auth::logout();
-
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
-
         return redirect('/');
     }
 }

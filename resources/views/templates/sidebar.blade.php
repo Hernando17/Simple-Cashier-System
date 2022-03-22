@@ -2,9 +2,9 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-        <img src="{{ asset('adminlte') }}/img/AdminLTELogo.png" alt="AdminLTE Logo"
-            class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+        {{-- <img src="{{ asset('adminlte') }}/img/AdminLTELogo.png" alt="AdminLTE Logo"
+            class="brand-image img-circle elevation-3" style="opacity: .8"> --}}
+        <span class="brand-text font-weight-light">SCS tool</span>
     </a>
 
     <!-- Sidebar -->
@@ -15,9 +15,28 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
+                    <a href="{{ route('dashboard') }}"
+                        class="nav-link @if ($page == 'dashboard') active @endif">
                         <i class="nav-icon fas fa-th"></i>
                         <p>Dashboard</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('user') }}" class="nav-link @if ($page == 'user') active @endif">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>User</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('user') }}" class="nav-link @if ($page == 'inventory') active @endif">
+                        <i class="nav-icon fas fa-box"></i>
+                        <p>Inventory</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('user') }}" class="nav-link @if ($page == 'transaction') active @endif">
+                        <i class="nav-icon fas fa-cash-register"></i>
+                        <p>Transaction</p>
                     </a>
                 </li>
             </ul>

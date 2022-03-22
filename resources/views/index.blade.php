@@ -27,10 +27,10 @@
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
 
-                <form action="{{ route('auth') }}" method="post">
+                <form action="{{ route('auth') }}" method="POST">
                     @csrf
                     <div class="input-group mb-3">
-                        <input type="name" class="form-control" placeholder="Name" name="name">
+                        <input type="text" class="form-control" placeholder="Name" name="name">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password">
+                        <input type="password" class="form-control" placeholder="Password" name="password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>

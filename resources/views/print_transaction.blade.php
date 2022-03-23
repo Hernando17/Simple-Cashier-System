@@ -51,16 +51,16 @@
             <p class="float-right">
                 @php
                     $total = $transaction->sum('total');
+                    $date = date('Y-m-d H:i:s');
+                    $timezone = date_default_timezone_get();
+                    $timestamp = strtotime($date);
+                    
+                    echo 'Code : SC' . $timestamp . '<br>';
                     echo 'Total : Rp ' . number_format($total, 2, ',', '.');
                 @endphp
             </p>
         </table>
     </div>
-
-
-
-
-
 
     <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->

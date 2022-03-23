@@ -19,24 +19,26 @@
 
 <body class="hold-transition sidebar-mini">
 
-    <h1 class="text-center">Tax</h1>
-    <table class="table table-bordered">
-        <th>ID Inventory</th>
-        <th>Quantity</th>
-        <th>Discount</th>
-        <th>Total</th>
+    <div class="container">
+        <h1 class="text-center">Tax</h1>
+        <table class="table table-bordered">
+            <th>ID Inventory</th>
+            <th>Quantity</th>
+            <th>Discount</th>
+            <th>Total</th>
 
-        @foreach ($transaction as $t)
-            <tbody>
-                <td>{{ $t->id_inventory }}</td>
-                <td>{{ $t->quantity }}</td>
-                <td>{{ $t->discount }}</td>
-                <td>
-                    {{ $t->inventory->price - $t->discount }}
-                </td>
-            </tbody>
-        @endforeach
-    </table>
+            @foreach ($transaction as $t)
+                <tbody>
+                    <td>{{ $t->id_inventory }}</td>
+                    <td>{{ $t->quantity }}</td>
+                    <td>{{ $t->discount }}</td>
+                    <td>
+                        {{ $t->inventory->price - $t->discount }}
+                    </td>
+                </tbody>
+            @endforeach
+        </table>
+    </div>
 
 
 
@@ -57,6 +59,10 @@
     <script src="{{ asset('adminlte') }}/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset('adminlte') }}/js/pages/dashboard3.js"></script>
+
+    <script>
+        window.print();
+    </script>
 </body>
 
 </html>

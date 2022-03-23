@@ -56,9 +56,9 @@
                                                 <td>{{ $u->item }}</td>
                                                 <td>{{ $u->price }}</td>
                                                 <td>
-                                                    <a href="{{ route('edit_user', $u->id) }}"
+                                                    <a href="{{ route('edit_inventory', $u->id) }}"
                                                         class="btn btn-primary ion-edit"></a>
-                                                    <form action="{{ route('delete_user', $u->id) }}" method="GET"
+                                                    <form action="{{ route('delete_inventory', $u->id) }}" method="GET"
                                                         class="d-inline">
                                                         <button type="button" class="btn btn-danger ion-trash-a"
                                                             data-toggle="modal"
@@ -68,8 +68,8 @@
                                                             <div class="modal-dialog">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
-                                                                        <h4 class="modal-title">Delete User
-                                                                            ({{ $u->name }})
+                                                                        <h4 class="modal-title">Delete Item
+                                                                            ({{ $u->item }})
                                                                         </h4>
                                                                         <button type="button" class="close"
                                                                             data-dismiss="modal" aria-label="Close">

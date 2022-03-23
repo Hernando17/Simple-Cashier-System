@@ -1,5 +1,5 @@
 @extends('templates/index')
-@section('title', 'Create new item')
+@section('title', 'Edit Item')
 @section('content')
 
     <?php
@@ -13,12 +13,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Create New Item</h1>
+                        <h1 class="m-0">Edit Item</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Create New User</li>
+                            <li class="breadcrumb-item active">Edit Item</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -36,18 +36,18 @@
                         <div class="card">
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form id="quickForm" action="{{ route('create_inventoryact') }}" method="POST">
+                            <form id="quickForm" action="{{ route('edit_inventoryact', $inventory->id) }}" method="POST">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Item</label>
                                         <input type="text" name="item" class="form-control" id="exampleInputName1"
-                                            placeholder="Enter Item">
+                                            placeholder="Enter Item" value="{{ $inventory->item }}">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Price</label>
                                         <input type="number" name="price" class="form-control" id="exampleInputName1"
-                                            placeholder="Enter Price">
+                                            placeholder="Enter Price" value="{{ $inventory->price }}">
                                     </div>
 
                                     <div class="form-group mb-0">

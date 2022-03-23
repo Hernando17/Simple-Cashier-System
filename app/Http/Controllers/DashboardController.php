@@ -141,4 +141,32 @@ class DashboardController extends Controller
         Inventory::create($data);
         return redirect('/inventory');
     }
+
+    public function edit_inventory($id)
+    {
+        $inventory = Inventory::find($id);
+        return view('edit_inventory', compact('inventory'));
+    }
+
+    public function edit_inventoryact($id, Request $request)
+    {
+        $request->validate([
+            'item' => 'required',
+            'price' => 'required',
+        ]);
+
+        $data = [
+            'item' => $request->item,
+            'price' => $request->price,
+        ];
+
+        Inventory::find($id)->update($data);
+        return redirect('/inventory');
+    }
+
+    public function delete_inventory($id)
+    {
+        Inventory::find($id)->delete();
+        return redirect('/inventory');
+    }
 }

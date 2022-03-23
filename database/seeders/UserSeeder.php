@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 
 
@@ -21,6 +22,7 @@ class UserSeeder extends Seeder
             'level' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('password'),
+            'remember_token' => Str::random(24),
         ]);
     }
 }

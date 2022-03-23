@@ -36,7 +36,7 @@
                         <div class="card">
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form id="quickForm" action="{{ route('create_useract') }}" method="POST">
+                            <form id="quickForm" action="{{ route('create_transactionact') }}" method="POST">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">

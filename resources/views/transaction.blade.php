@@ -12,7 +12,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">User Data</h1>
+                        <h1 class="m-0">Transaction Data</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -47,9 +47,10 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>ID Inventory</th>
+                                            <th>Item</th>
                                             <th>Quantity</th>
                                             <th>Discount</th>
+                                            <th>Total</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -57,13 +58,27 @@
                                         @foreach ($transactions as $t)
                                             <tr>
                                                 <td>{{ !empty($i) ? ++$i : ($i = 1) }}</td>
-                                                <td>{{ $t->id_inventory }}</td>
+                                                <td>
+                                                    {{ $t->inventory->item }}
+                                                    (@php
+                                                        $number_format = 'Rp ' . number_format($t->inventory->price, 2, ',', '.');
+                                                        echo $number_format;
+                                                    @endphp)
+                                                </td>
                                                 <td>{{ $t->quantity }}</td>
                                                 <td>{{ $t->discount }}</td>
                                                 <td>
+                                                    @php
+                                                        $multiply = $t->inventory->price * $t->quantity - $t->discount;
+                                                        $number_format = 'Rp ' . number_format($multiply, 2, ',', '.');
+                                                        echo $number_format;
+                                                    @endphp
+
+                                                </td>
+                                                <td>
                                                     <a href="{{ route('edit_user', $t->id) }}"
                                                         class="btn btn-primary ion-edit"></a>
-                                                    <form action="{{ route('delete_user', $t->id) }}" method="GET"
+                                                    <form action="{{ route('delete_transaction', $t->id) }}" method="GET"
                                                         class="d-inline">
                                                         <button type="button" class="btn btn-danger ion-trash-a"
                                                             data-toggle="modal"

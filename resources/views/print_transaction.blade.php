@@ -19,8 +19,8 @@
 
 <body class="hold-transition sidebar-mini">
 
-    <div class="container">
-        <h1 class="text-center">Tax</h1>
+    <div class="container mt-5">
+        <h1 class="text-center">Payment</h1>
         <table class="table table-bordered">
             <th>ID Inventory</th>
             <th>Quantity</th>
@@ -29,14 +29,31 @@
 
             @foreach ($transaction as $t)
                 <tbody>
-                    <td>{{ $t->id_inventory }}</td>
+                    <td>
+                        {{ $t->inventory->item }}
+                        (@php
+                            $number_format = 'Rp ' . number_format($t->inventory->price, 2, ',', '.');
+                            echo $number_format;
+                        @endphp)
+                    </td>
                     <td>{{ $t->quantity }}</td>
                     <td>{{ $t->discount }}</td>
                     <td>
-                        {{ $t->inventory->price - $t->discount }}
+                        @php
+                            $multiply = $t->inventory->price * $t->quantity - $t->discount;
+                            $number_format = 'Rp ' . number_format($t->total, 2, ',', '.');
+                            echo $number_format;
+                        @endphp
                     </td>
                 </tbody>
             @endforeach
+            <hr>
+            <p class="float-right">
+                @php
+                    $total = $transaction->sum('total');
+                    echo 'Total : Rp ' . number_format($total, 2, ',', '.');
+                @endphp
+            </p>
         </table>
     </div>
 

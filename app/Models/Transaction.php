@@ -10,7 +10,7 @@ class Transaction extends Model
     use HasFactory;
     protected $table = 'transactions';
     protected $primaryKey = 'id';
-    protected $fillable = ['id_inventory', 'quantity', 'discount'];
+    protected $fillable = ['id_inventory', 'quantity', 'discount', 'total'];
 
     public function inventory()
     {

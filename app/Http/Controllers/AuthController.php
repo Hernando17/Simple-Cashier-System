@@ -27,6 +27,8 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             return redirect()->intended('dashboard');
         }
+
+        return back()->with('login_error', 'Wrong username or password');
     }
 
     public function logout(Request $request)

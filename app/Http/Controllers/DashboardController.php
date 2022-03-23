@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Inventory;
 use App\Models\User;
 use App\Models\Transaction;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
@@ -90,6 +91,10 @@ class DashboardController extends Controller
 
     public function create_transactionact(Request $request)
     {
+        $id = $request->id_inventory;
+        $inventory = Inventory::find($id);
+        $price = $inventory->price;
+
         $request->validate([
             'id_inventory' => 'required',
             'quantity' => 'required',
@@ -100,9 +105,16 @@ class DashboardController extends Controller
             'id_inventory' => $request->id_inventory,
             'quantity' => $request->quantity,
             'discount' => $request->discount,
+            'total' => $price * $request->quantity - $request->discount,
         ];
 
         Transaction::create($data);
+        return redirect('/transaction');
+    }
+
+    public function delete_transaction($id)
+    {
+        Transaction::find($id)->delete();
         return redirect('/transaction');
     }
 

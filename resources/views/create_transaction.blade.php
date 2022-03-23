@@ -40,27 +40,24 @@
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Item</label>
-                                        <input type="text" name="item" class="form-control" id="exampleInputEmail1"
-                                            placeholder="Enter Item">
+                                        <label for="exampleSelectRounded0">Item</label><br>
+                                        <select class="custom-select rounded-0 col-2" id="exampleSelectRounded0"
+                                            name="id_inventory">
+                                            @foreach ($inventory as $i)
+                                                <option value="{{ $i->id }}">{{ $i->item }} (Rp
+                                                    {{ $i->price }})</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Quantity</label>
-                                        <input type="number" name="password" class="form-control"
+                                        <input type="number" name="quantity" class="form-control col-2"
                                             id="exampleInputPassword1" placeholder="Quantity">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleSelectRounded0">Total</label><br>
-                                        <input type="number" name="total" class="form-control" id="exampleInputPassword1"
-                                            placeholder="Total">
-                                    </div>
-                                    <div class="form-group mb-0">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" name="terms" class="custom-control-input required"
-                                                id="exampleCheck1">
-                                            <label class="custom-control-label" for="exampleCheck1">I agree to the <a
-                                                    href="#">terms of service</a>.</label>
-                                        </div>
+                                        <label for="exampleInputPassword1">Discount</label>
+                                        <input type="number" name="discount" class="form-control col-2"
+                                            id="exampleInputPassword1" placeholder="Discount">
                                     </div>
                                 </div>
                                 <!-- /.card-body -->

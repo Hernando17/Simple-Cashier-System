@@ -41,13 +41,13 @@
                         <p>Transaction</p>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ route('transaction') }}"
                         class="nav-link @if ($page == 'history') active @endif">
                         <i class="nav-icon fas fa-history"></i>
                         <p>History</p>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

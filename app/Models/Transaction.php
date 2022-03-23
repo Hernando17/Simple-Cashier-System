@@ -10,5 +10,10 @@ class Transaction extends Model
     use HasFactory;
     protected $table = 'transactions';
     protected $primaryKey = 'id';
-    protected $fillable = ['code', 'item', 'quantity', 'price'];
+    protected $fillable = ['id_inventory', 'quantity', 'discount'];
+
+    public function inventory()
+    {
+        return $this->belongsTo(Inventory::class, 'id_inventory', 'id');
+    }
 }

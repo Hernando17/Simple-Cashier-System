@@ -17,7 +17,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item active">User</li>
+                            <li class="breadcrumb-item active">Transaction</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -36,7 +36,7 @@
                                     class="btn btn-success float-left ion-plus"></a>
                                 <a href="{{ route('transaction') }}"
                                     class="btn btn-primary float-left ml-1 ion-refresh"></a>
-                                <a href="{{ route('transaction') }}" class="btn btn-info float-right">Paid</a>
+                                <a href="{{ route('print_transaction') }}" class="btn btn-info float-right">Paid</a>
                             </div>
 
                             <!-- /.card-header -->
@@ -47,9 +47,9 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Item</th>
+                                            <th>ID Inventory</th>
                                             <th>Quantity</th>
-                                            <th>Total</th>
+                                            <th>Discount</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -57,9 +57,9 @@
                                         @foreach ($transactions as $t)
                                             <tr>
                                                 <td>{{ !empty($i) ? ++$i : ($i = 1) }}</td>
-                                                <td>{{ $t->item }}</td>
+                                                <td>{{ $t->id_inventory }}</td>
                                                 <td>{{ $t->quantity }}</td>
-                                                <td>{{ $t->total }}</td>
+                                                <td>{{ $t->discount }}</td>
                                                 <td>
                                                     <a href="{{ route('edit_user', $t->id) }}"
                                                         class="btn btn-primary ion-edit"></a>

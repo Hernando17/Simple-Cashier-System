@@ -39,6 +39,7 @@ route::middleware(['auth'])->group(function () {
     route::get('/transaction', [DashboardController::class, 'transaction'])->name('transaction');
     route::get('/create_transaction', [DashboardController::class, 'create_transaction'])->name('create_transaction');
     route::post('/create_transactionact', [DashboardController::class, 'create_transactionact'])->name('create_transactionact');
+    route::get('/print_transaction', [DashboardController::class, 'print_transaction'])->name('print_transaction');
 
     route::get('/inventory', [DashboardController::class, 'inventory'])->name('inventory');
     route::get('/create_inventory', [DashboardController::class, 'create_inventory'])->name('create_inventory');

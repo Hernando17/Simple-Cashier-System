@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('id_inventory');
             $table->integer('quantity');
-            $table->integer('total');
+            $table->integer('discount');
             $table->timestamps();
         });
     }

@@ -84,24 +84,26 @@ class DashboardController extends Controller
 
     public function create_transaction()
     {
-        return view('create_transaction');
+        $inventory = Inventory::all();
+        return view('create_transaction', compact('inventory'));
     }
 
     public function create_transactionact(Request $request)
     {
         $request->validate([
-            'item' => 'required',
+            'id_inventory' => 'required',
             'quantity' => 'required',
-            'total' => 'required',
+            'discount' => 'required',
         ]);
 
         $data = [
-            'item' => $request->item,
+            'id_inventory' => $request->id_inventory,
             'quantity' => $request->quantity,
-            'total' => $request->price,
+            'discount' => $request->discount,
         ];
 
         Transaction::create($data);
+        return redirect('/transaction');
     }
 
     public function transaction_paid()
@@ -168,5 +170,12 @@ class DashboardController extends Controller
     {
         Inventory::find($id)->delete();
         return redirect('/inventory');
+    }
+
+    public function print_transaction()
+    {
+        $transaction = Transaction::all();
+
+        return view('print_transaction', compact('transaction'));
     }
 }

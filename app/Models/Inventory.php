@@ -12,4 +12,9 @@ class Inventory extends Model
     protected $table = 'inventorys';
     protected $primaryKey = 'id';
     protected $fillable = ['item', 'price'];
+
+    public function transaction()
+    {
+        return $this->belongsTo(Transaction::class);
+    }
 }

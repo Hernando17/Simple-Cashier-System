@@ -21,12 +21,15 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('user') }}" class="nav-link @if ($page == 'user') active @endif">
-                        <i class="nav-icon fas fa-user"></i>
-                        <p>User</p>
-                    </a>
-                </li>
+                @if (Auth::user()->level == 'admin')
+                    <li class="nav-item">
+                        <a href="{{ route('user') }}"
+                            class="nav-link @if ($page == 'user') active @endif">
+                            <i class="nav-icon fas fa-user"></i>
+                            <p>User</p>
+                        </a>
+                    </li>
+                @endif
                 <li class="nav-item">
                     <a href="{{ route('inventory') }}"
                         class="nav-link @if ($page == 'inventory') active @endif">

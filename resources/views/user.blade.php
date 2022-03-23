@@ -45,6 +45,7 @@
                                             <th>No</th>
                                             <th>Email</th>
                                             <th>Name</th>
+                                            <th>Level</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -54,6 +55,7 @@
                                                 <td>{{ !empty($i) ? ++$i : ($i = 1) }}</td>
                                                 <td>{{ $u->email }}</td>
                                                 <td>{{ $u->name }}</td>
+                                                <td>{{ $u->level }}</td>
                                                 <td>
                                                     <a href="{{ route('edit_user', $u->id) }}"
                                                         class="btn btn-primary ion-edit"></a>

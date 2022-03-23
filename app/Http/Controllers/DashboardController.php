@@ -13,7 +13,13 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
-        return view('dashboard');
+        $data = [
+            'user' => User::count(),
+            'inventory' => Inventory::count(),
+            'transaction' => Transaction::count(),
+        ];
+
+        return view('dashboard', compact('data'));
     }
 
     public function create_user()

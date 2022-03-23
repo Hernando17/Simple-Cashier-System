@@ -25,6 +25,13 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
+
+            if (Auth::user()->level == 'admin') {
+                $request->session()->put('admin', true);
+            } elseif (Auth::user()->level == 'kasir') {
+                $request->session()->put('kasir', true);
+            }
+
             return redirect()->intended('dashboard');
         }
 

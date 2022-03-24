@@ -124,15 +124,10 @@ class DashboardController extends Controller
         return redirect('/transaction');
     }
 
-    public function transaction_paid()
+    public function transaction_clear()
     {
-        Transaction::query()
-            ->where('id', '<')
-            ->each(function ($oldPost) {
-                $newPost = $oldPost->replicate();
-                $newPost->setTable('inventorys');
-                $newPost->save();
-            });
+        Transaction::truncate();
+        return redirect('/transaction');
     }
 
     public function inventory()

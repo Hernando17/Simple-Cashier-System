@@ -58,8 +58,8 @@
                                         <label for="exampleSelectRounded0">Level</label><br>
                                         <select class="custom-select rounded-0 col-2" id="exampleSelectRounded0"
                                             name="level">
-                                            <option value="admin">Admin</option>
-                                            <option value="kasir">Kasir</option>
+                                            <option value="administrator">Administrator</option>
+                                            <option value="cashier">Cashier</option>
                                         </select>
                                     </div>
                                     {{-- <div class="form-group mb-0">

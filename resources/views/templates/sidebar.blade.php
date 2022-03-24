@@ -4,7 +4,7 @@
     <a href="index3.html" class="brand-link">
         {{-- <img src="{{ asset('adminlte') }}/img/AdminLTELogo.png" alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8"> --}}
-        <span class="brand-text font-weight-light">SCS tool</span>
+        <h3 class="brand-text font-weight-light text-center">SCS tool</h3>
     </a>
 
     <!-- Sidebar -->
@@ -21,7 +21,7 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                @if (Auth::user()->level == 'admin')
+                @if (Auth::user()->level == 'administrator')
                     <li class="nav-item">
                         <a href="{{ route('user') }}"
                             class="nav-link @if ($page == 'user') active @endif">

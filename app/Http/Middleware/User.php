@@ -16,7 +16,7 @@ class User
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!$request->session()->has('admin')) {
+        if (!$request->session()->has('administrator')) {
             return redirect('/dashboard');
         }
         return $next($request);

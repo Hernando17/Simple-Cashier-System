@@ -36,7 +36,37 @@
                                     class="btn btn-success float-left ion-plus"></a>
                                 <a href="{{ route('transaction') }}"
                                     class="btn btn-primary float-left ml-1 ion-refresh"></a>
-                                <a href="{{ route('print_transaction') }}" class="btn btn-info float-right">Paid</a>
+                                <form action="{{ route('transaction_clear') }}" method="GET" class="d-inline">
+                                    <button type="button" class="btn btn-danger float-right" data-toggle="modal"
+                                        data-target="#clear">
+                                        Clear
+                                    </button>
+                                    <div class="modal fade" id="clear">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Clear All
+                                                    </h4>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Are you sure?</p>
+                                                </div>
+                                                <div class="modal-footer justify-content-between">
+                                                    <button type="button" class="btn btn-default"
+                                                        data-dismiss="modal">Cancel</button>
+                                                    <button type="submit" class="btn btn-danger">Confirm</button>
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
+                                </form>
+                                <a href="{{ route('print_transaction') }}" class="btn btn-info mr-1 float-right">Paid</a>
                             </div>
 
                             <!-- /.card-header -->
@@ -88,8 +118,8 @@
                                                             <div class="modal-dialog">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
-                                                                        <h4 class="modal-title">Delete User
-                                                                            ({{ $t->name }})
+                                                                        <h4 class="modal-title">Delete Transaction
+                                                                            ({{ $t->inventory->item }})</h4>
                                                                         </h4>
                                                                         <button type="button" class="close"
                                                                             data-dismiss="modal" aria-label="Close">

@@ -22,7 +22,7 @@
     <div class="container mt-5">
         <h1 class="text-center">Payment</h1>
         <table class="table table-bordered">
-            <th>ID Inventory</th>
+            <th>Item</th>
             <th>Quantity</th>
             <th>Discount</th>
             <th>Total</th>
